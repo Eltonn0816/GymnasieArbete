@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,9 @@ public class EnemyHealth : MonoBehaviour
     void Update()
     {
         hpBar.value = currenthp;
-        Debug.Log("hello damage taken");
+    }
+    public void takedamage()
+    {
+        currenthp -= dmgTaken;
     }
 }
