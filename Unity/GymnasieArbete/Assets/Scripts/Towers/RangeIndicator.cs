@@ -5,18 +5,25 @@ using UnityEngine;
 public class RangeIndicator : MonoBehaviour
 {
     public Tower1 tower;
+    public GameObject circle;
+    public CircleCollider2D circleCollider;
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.SetActive(false);
+        circle.SetActive(false);
     }
     private void OnMouseOver()
     {
-        gameObject.SetActive(true);
+        circle.SetActive(true);
+    }
+    private void OnMouseExit()
+    {
+        circle.SetActive(false);
     }
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.localScale = new Vector3(tower.range, tower.range, 1f);
+        float targetDiameter = circleCollider.radius * 2f;
+        circle.transform.localScale = new Vector3(targetDiameter, targetDiameter, 1f);
     }
 }

@@ -13,7 +13,9 @@ public class Tower1 : MonoBehaviour
     public TextMeshProUGUI Upgradetext;
     //public TowerPlacement tp;
     public GameObject panel;
-    // Start is called before the first frame update
+    public bool ishovering = false;
+    // Start is called before the first frame update'
+
     void Start()
     {
         panel.SetActive(false);
@@ -23,25 +25,30 @@ public class Tower1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       
     }
     private void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0))
+        ishovering = true;
+        if (Input.GetMouseButtonDown(0) && ishovering)
         {
-         panel.SetActive(true);
+          panel.SetActive(true);
         }
+    }
+    private void OnMouseExit()
+    {
+        ishovering = false;
     }
     public void upgradedamage()
     {
-        float damageup = Mathf.Round(Random.Range(0.5f, 5f) * 100f) / 100f;
+        float damageup = Mathf.Round(Random.Range(0.3f, 3f) * 100f) / 100f;
         damage += damageup; 
         Upgradetext.text = "Dmg up " + damageup.ToString();
         panel.SetActive(false);
     }
     public void upgraderange()
     {
-        float rangeup = Mathf.Round(Random.Range(0.4f, 1.5f) * 100f) / 100f;
+        float rangeup = Mathf.Round(Random.Range(0.2f, 0.6f) * 100f) / 100f;
         range += rangeup;
         Upgradetext.text = "Range up " + rangeup.ToString();
         C.radius = range;
@@ -49,7 +56,7 @@ public class Tower1 : MonoBehaviour
     }
     public void upgradefirerate()
     {
-        float firerateup = Mathf.Round(Random.Range(0.1f, 0.4f)* 100f) / 100f;
+        float firerateup = Mathf.Round(Random.Range(0.1f, 0.3f)* 100f) / 100f;
         firerate -= firerateup;
         Upgradetext.text = "Firing rate up " + firerateup.ToString();
         panel.SetActive(false);
