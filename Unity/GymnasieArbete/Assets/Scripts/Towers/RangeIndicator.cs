@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class RangeIndicator : MonoBehaviour
 {
@@ -12,13 +14,17 @@ public class RangeIndicator : MonoBehaviour
     {
         circle.SetActive(false);
     }
-    private void OnMouseOver()
+  
+    void OnMouseEnter()
     {
+        Debug.Log("mouse is over");
         circle.SetActive(true);
     }
-    private void OnMouseExit()
+    void OnMouseExit()
     {
+        Debug.Log("mouse exited");
         circle.SetActive(false);
+
     }
     // Update is called once per frame
     void Update()
