@@ -27,13 +27,18 @@ public class Tower1 : MonoBehaviour
     {
        
     }
-    private void OnMouseOver()
+    private void OnMouseEnter()
     {
-
+        ishovering = true;
         if (Input.GetMouseButtonDown(0) && ishovering)
         {
           panel.SetActive(true);
         }
+    }
+    private void OnMouseExit()
+    {
+        ishovering = false; 
+        panel.SetActive(false);
     }
     public void upgradedamage()
     {
