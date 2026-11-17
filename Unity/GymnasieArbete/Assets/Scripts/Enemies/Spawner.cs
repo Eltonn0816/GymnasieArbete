@@ -57,24 +57,24 @@ public class Spawner : MonoBehaviour
 
     private void EnemySpawn1()
     {
-        EnemyHealth enemy1 = Instantiate(EnemyPrefab).GetComponent<LVL1>();
-        enemy1.transform.position = transform.position;
+       // EnemyHealth enemy1 = Instantiate(EnemyPrefab).GetComponent<LVL1>();
+        //enemy1.transform.position = transform.position;
 
     }
     private void EnemySpawn2()
     {
-        EnemyHealth enemy2 = Instantiate(EnemyPrefab).GetComponent<LVL2>();
-        enemy2.transform.position = transform.position;
+        //EnemyHealth enemy2 = Instantiate(EnemyPrefab).GetComponent<LVL2>();
+        //enemy2.transform.position = transform.position;
     }
     private void EnemySpawn3()
     {
-        EnemyHealth enemy3 = Instantiate(EnemyPrefab).GetComponent<LVL3>();
-        enemy3.transform.position = transform.position;
+        //EnemyHealth enemy3 = Instantiate(EnemyPrefab).GetComponent<LVL3>();
+       // enemy3.transform.position = transform.position;
         
     }
     private void EnemySpawn4()
     {
-        EnemyHealth enemy4 = Instantiate(EnemyPrefab).GetComponent<LVL4>();
-        enemy4.transform.position = transform.position;
+        //EnemyHealth enemy4 = Instantiate(EnemyPrefab).GetComponent<LVL4>();
+       // enemy4.transform.position = transform.position;
     }
 }
