@@ -346,6 +346,7 @@ GameObject:
   - component: {fileID: 4636902262779500760}
   - component: {fileID: 6956516771789930145}
   - component: {fileID: 7050039089791687691}
+  - component: {fileID: 735235424408929573}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -470,7 +471,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 100
   hpBar: {fileID: 1742224258730271644}
-  dmgTaken: 0.1
+--- !u!114 &735235424408929573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8935527610372977996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70d41bc95e17f52459a46715eae5354c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovementSpeed: 1
+  movepath: {fileID: 0}
+  health: {fileID: 0}
 --- !u!1 &9051567778379341173
 GameObject:
   m_ObjectHideFlags: 0
