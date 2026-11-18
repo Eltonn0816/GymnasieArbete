@@ -11,12 +11,10 @@ public class Spawner : MonoBehaviour
     public GameObject EnemyPrefab;
     public EnemyHealth hp;
     public EnemyMovement em;
-    public Currencymanager cm; 
+    public Vector3 spawnposition;
     private void Start()
     {
-        em = GetComponent<EnemyMovement>();
-        //wm = GameObject.Find("WaveManager").GetComponent<WaveManagement>();
-
+        spawnposition = transform.position;
     }
     void Update()
     {
@@ -47,34 +45,32 @@ public class Spawner : MonoBehaviour
             SpawnTime = SpawnDelay;
             EnemySpawn4();
         }
+        
         else if (SpawnTime <= 0 && EnemiesToSpawn <= 0)
         {
             wave += 1;
-            EnemiesToSpawn = 10;
-            em.MovementSpeed += 0.1f;
+            EnemiesToSpawn = 10 + wave;
+            //em.MovementSpeed += 0.1f;
         }
     }
-
-    private void EnemySpawn1()
+    public void EnemySpawn1()
     {
-       // EnemyHealth enemy1 = Instantiate(EnemyPrefab).GetComponent<LVL1>();
-        //enemy1.transform.position = transform.position;
-
+        EnemyHealth enemy1 = Instantiate(EnemyPrefab).GetComponent<LVL1>();
+        enemy1.transform.position = spawnposition; 
     }
-    private void EnemySpawn2()
+    public void EnemySpawn2()
     {
-        //EnemyHealth enemy2 = Instantiate(EnemyPrefab).GetComponent<LVL2>();
-        //enemy2.transform.position = transform.position;
+        EnemyHealth enemy2 = Instantiate(EnemyPrefab).GetComponent<LVL2>();
+        enemy2.transform.position = spawnposition;
     }
-    private void EnemySpawn3()
+    public void EnemySpawn3()
     {
-        //EnemyHealth enemy3 = Instantiate(EnemyPrefab).GetComponent<LVL3>();
-       // enemy3.transform.position = transform.position;
-        
+        EnemyHealth enemy3 = Instantiate(EnemyPrefab).GetComponent<LVL3>();
+        enemy3.transform.position = spawnposition;
     }
-    private void EnemySpawn4()
+    public void EnemySpawn4()
     {
-        //EnemyHealth enemy4 = Instantiate(EnemyPrefab).GetComponent<LVL4>();
-       // enemy4.transform.position = transform.position;
+       EnemyHealth enemy4 = Instantiate(EnemyPrefab).GetComponent<LVL4>();
+       enemy4.transform.position = spawnposition; 
     }
 }

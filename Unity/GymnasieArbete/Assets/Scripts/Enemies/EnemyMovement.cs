@@ -9,10 +9,12 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private EnemyHealth health;
     private Vector3 target;
     private int waypoint;
+    public Spawner spawner;
 
     private void Awake()
     {
-        health = GetComponent<EnemyHealth>();
+        spawner = GameObject.Find("EnemySpawner").GetComponent<Spawner>();
+        gameObject.transform.position = spawner.spawnposition;
         movepath = GameObject.Find("Path").GetComponent<EnemyPath>(); //finds the path in the scene
     }
     private void OnEnable()
