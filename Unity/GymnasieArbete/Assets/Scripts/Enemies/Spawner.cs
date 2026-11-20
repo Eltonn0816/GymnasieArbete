@@ -8,13 +8,25 @@ public class Spawner : MonoBehaviour
     public float SpawnDelay = 2f;
     public int EnemiesToSpawn = 1;
     public int wave = 1;
-    public GameObject EnemyPrefab;
+    public GameObject EnemyPrefab1;
+    public GameObject EnemyPrefab2;
+    public GameObject EnemyPrefab3;
+    public GameObject EnemyPrefab4;
     public EnemyHealth hp;
     public EnemyMovement em;
     public Vector3 spawnposition;
+    public GameObject roundbutton;
+    public bool start = false; 
+
     private void Start()
     {
-   
+      roundbutton.SetActive(false);
+    }
+    public void startround()
+    {
+        start = true;
+        roundbutton.SetActive(false);
+        start = false;
     }
     void Update()
     {
@@ -48,32 +60,33 @@ public class Spawner : MonoBehaviour
         
         else if (SpawnTime <= 0 && EnemiesToSpawn <= 0)
         {
-            wave += 1;
-            EnemiesToSpawn = 10 + wave;
+            roundbutton.SetActive(true);
+            if (start == true)
+            {
+                wave += 1;
+                EnemiesToSpawn = 10 + wave;
+            } 
         }
+
     }
     public void EnemySpawn1()
     {
         spawnposition = gameObject.transform.position;
-        EnemyHealth enemy1 = Instantiate(EnemyPrefab).GetComponent<LVL1>();
-        enemy1.gameObject.transform.position = spawnposition; 
+        Instantiate(EnemyPrefab1, spawnposition, Quaternion.identity); 
     }
     public void EnemySpawn2()
     {
         spawnposition = gameObject.transform.position;
-        EnemyHealth enemy2 = Instantiate(EnemyPrefab).GetComponent<LVL2>();
-        enemy2.gameObject.transform.position = spawnposition;
+        Instantiate(EnemyPrefab2, spawnposition, Quaternion.identity);
     }
     public void EnemySpawn3()
     {
         spawnposition = gameObject.transform.position;
-        EnemyHealth enemy3 = Instantiate(EnemyPrefab).GetComponent<LVL3>();
-        enemy3.gameObject.transform.position = spawnposition;
+        Instantiate(EnemyPrefab3, spawnposition, Quaternion.identity);
     }
     public void EnemySpawn4()
     {
         spawnposition = gameObject.transform.position;
-        EnemyHealth enemy4 = Instantiate(EnemyPrefab).GetComponent<LVL4>();
-        enemy4.gameObject.transform.position = spawnposition; 
+        Instantiate(EnemyPrefab4, spawnposition, Quaternion.identity);
     }
 }

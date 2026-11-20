@@ -137,9 +137,9 @@ GameObject:
   - component: {fileID: 5890728352646952880}
   - component: {fileID: 2578206829555701248}
   - component: {fileID: 5425062777637371562}
-  - component: {fileID: 3750726670462659997}
+  - component: {fileID: 389721363271161930}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 804cc4f985a63b64b84474a4c62087cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sr: {fileID: 3750726670462659997}
+  sr: {fileID: 0}
   maxHp: 100
   hpBar: {fileID: 1742224258730271644}
   currenthp: 100
@@ -232,7 +232,7 @@ MonoBehaviour:
   movepath: {fileID: 0}
   health: {fileID: 2578206829555701248}
   spawner: {fileID: 0}
---- !u!212 &3750726670462659997
+--- !u!212 &389721363271161930
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
