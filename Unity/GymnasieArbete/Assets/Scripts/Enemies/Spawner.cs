@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
     public Vector3 spawnposition;
     private void Start()
     {
-        spawnposition = transform.position;
+   
     }
     void Update()
     {
@@ -50,27 +50,30 @@ public class Spawner : MonoBehaviour
         {
             wave += 1;
             EnemiesToSpawn = 10 + wave;
-            //em.MovementSpeed += 0.1f;
         }
     }
     public void EnemySpawn1()
     {
+        spawnposition = gameObject.transform.position;
         EnemyHealth enemy1 = Instantiate(EnemyPrefab).GetComponent<LVL1>();
-        enemy1.transform.position = spawnposition; 
+        enemy1.gameObject.transform.position = spawnposition; 
     }
     public void EnemySpawn2()
     {
+        spawnposition = gameObject.transform.position;
         EnemyHealth enemy2 = Instantiate(EnemyPrefab).GetComponent<LVL2>();
-        enemy2.transform.position = spawnposition;
+        enemy2.gameObject.transform.position = spawnposition;
     }
     public void EnemySpawn3()
     {
+        spawnposition = gameObject.transform.position;
         EnemyHealth enemy3 = Instantiate(EnemyPrefab).GetComponent<LVL3>();
-        enemy3.transform.position = spawnposition;
+        enemy3.gameObject.transform.position = spawnposition;
     }
     public void EnemySpawn4()
     {
-       EnemyHealth enemy4 = Instantiate(EnemyPrefab).GetComponent<LVL4>();
-       enemy4.transform.position = spawnposition; 
+        spawnposition = gameObject.transform.position;
+        EnemyHealth enemy4 = Instantiate(EnemyPrefab).GetComponent<LVL4>();
+        enemy4.gameObject.transform.position = spawnposition; 
     }
 }

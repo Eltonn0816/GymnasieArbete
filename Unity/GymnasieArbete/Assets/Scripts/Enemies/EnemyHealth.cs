@@ -18,8 +18,7 @@ public class EnemyHealth : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        currenthp = maxHp; 
+
     }
 
     // Update is called once per frame
@@ -43,34 +42,37 @@ public class EnemyHealth : MonoBehaviour
 }
 public class LVL1 : EnemyHealth
 {
-    private void Awake()
+    public void Awake()
     {
+        sr = GetComponent<SpriteRenderer>();
         sr.sprite = sprite1;
-        currenthp = maxHp;
+        currenthp = 100;
     }
 }
 public class LVL2 : EnemyHealth
 {
-    private void Awake()
+    public void Awake()
     {
+        sr = GetComponent<SpriteRenderer>();
         sr.sprite = sprite2;
-        currenthp = maxHp + 50;
-        
+        currenthp = 150;
     }
 }
 public class LVL3 : EnemyHealth
 {
-    private void Awake()
+    public void Awake()
     {
+        sr = GetComponent<SpriteRenderer>();
         sr.sprite = sprite3;
-        currenthp = maxHp + 100;
+        currenthp = 200;
     }
 }
 public class LVL4 : EnemyHealth
 {
-    private void Awake()
+    public void Awake()
     {
+        sr = GetComponent<SpriteRenderer>();
         sr.sprite = sprite4;
-        currenthp = maxHp + 150;
+        currenthp = 200;
     }
 }
