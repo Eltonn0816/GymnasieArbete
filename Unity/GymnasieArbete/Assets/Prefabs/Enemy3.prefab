@@ -161,6 +161,7 @@ MonoBehaviour:
   maxHp: 100
   hpBar: {fileID: 3331464793065239166}
   currenthp: 200
+  lifelost: 6
 --- !u!114 &7399625297344122893
 MonoBehaviour:
   m_ObjectHideFlags: 0

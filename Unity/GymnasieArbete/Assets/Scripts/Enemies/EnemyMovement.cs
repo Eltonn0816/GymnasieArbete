@@ -7,12 +7,14 @@ public class EnemyMovement : MonoBehaviour
     public float MovementSpeed = 1f;
     [SerializeField] private EnemyPath movepath;
     [SerializeField] private EnemyHealth health;
+    public Lives life;
     private Vector3 target;
     private int waypoint;
     public Spawner spawner;
 
     private void Awake()
     {
+        life = GameObject.Find("Lives").GetComponent<Lives>();
         spawner = GameObject.Find("EnemySpawner").GetComponent<Spawner>();
         gameObject.transform.position = spawner.spawnposition;
         movepath = GameObject.Find("Path").GetComponent<EnemyPath>(); //finds the path in the scene
@@ -36,7 +38,7 @@ public class EnemyMovement : MonoBehaviour
             else //if it is the last waypoint, destroy this gameobject and deal damage to the players healthpoints
             {
                 Destroy(gameObject);
-                //damage taken here
+                life.loselives(health.lifelost);
             }
         }
     }

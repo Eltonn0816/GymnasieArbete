@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TowerPlacement : MonoBehaviour
@@ -14,7 +15,13 @@ public class TowerPlacement : MonoBehaviour
     {
         panel.SetActive(false);
     }
+    private void OnMouseOver()
+    {
+        //if(Input.GetMouseButtonDown)
+        //{
 
+        //}
+    }
     // Update is called once per frame
     void Update()
     {

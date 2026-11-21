@@ -10,6 +10,7 @@ public class EnemyHealth : MonoBehaviour
     public float maxHp = 100f;
     public Slider hpBar;
     public float currenthp = 100f;
+    public int lifelost; 
     // Start is called before the first frame update
     private void Start()
     {
@@ -21,9 +22,9 @@ public class EnemyHealth : MonoBehaviour
     {
         hpBar.value = currenthp;
     }
-    public void takedamage(int damage)
+    public void takedamage(float damagetaken)
     {
-        currenthp -= damage; 
+        currenthp -= damagetaken; 
         if(currenthp <= 0)
         {
             die();

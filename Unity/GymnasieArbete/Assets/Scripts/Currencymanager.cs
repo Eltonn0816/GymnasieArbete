@@ -7,6 +7,7 @@ using TMPro;
 
 public class Currencymanager : MonoBehaviour
 {
+    public Spawner s; 
     public int Currency;
     public TextMeshProUGUI amount;
     public float targetTime = 1f;
@@ -20,12 +21,11 @@ public class Currencymanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        targetTime -= Time.deltaTime; //räknar ner???
-        //mb all
-        if(targetTime <= 0f)
+        targetTime -= Time.deltaTime;
+        if(targetTime <= 0f && s.started)
         {
             Currency += increase;
-            targetTime = 1f; 
+            targetTime = 0.8f; 
         }
         amount.text = Currency.ToString();
     }

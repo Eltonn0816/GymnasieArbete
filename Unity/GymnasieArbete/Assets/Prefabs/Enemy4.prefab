@@ -420,6 +420,7 @@ MonoBehaviour:
   maxHp: 100
   hpBar: {fileID: 4110145847923250504}
   currenthp: 250
+  lifelost: 8
 --- !u!114 &5784240711163707805
 MonoBehaviour:
   m_ObjectHideFlags: 0

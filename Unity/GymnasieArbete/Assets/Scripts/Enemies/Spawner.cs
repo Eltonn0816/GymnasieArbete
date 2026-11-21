@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour
 {
@@ -16,55 +17,64 @@ public class Spawner : MonoBehaviour
     public EnemyMovement em;
     public Vector3 spawnposition;
     public GameObject roundbutton;
-    public bool start = false; 
+    public bool start = false;
+    public bool buttonactive = true;
+    public bool started = false;
 
     private void Start()
     {
-      roundbutton.SetActive(false);
+      roundbutton.SetActive(true);
     }
     public void startround()
     {
+        started = true;
         start = true;
         roundbutton.SetActive(false);
-        start = false;
+        buttonactive = false; 
     }
     void Update()
     {
         SpawnTime -= Time.deltaTime;
         int RandomizeEnemy = Random.Range(1, 5); //Generates 1-4 randomly
-        if (SpawnTime <= 0 && EnemiesToSpawn >= 1 && RandomizeEnemy == 1)
+        if (SpawnTime <= 0 && EnemiesToSpawn >= 1 && RandomizeEnemy == 1 && started)
         {
             EnemiesToSpawn -= 1;
             SpawnTime = SpawnDelay;
             EnemySpawn1();
         }
 
-        else if (SpawnTime <= 0 && EnemiesToSpawn >= 1 && RandomizeEnemy == 2)
+        else if (SpawnTime <= 0 && EnemiesToSpawn >= 1 && RandomizeEnemy == 2 && started)
         {
             EnemiesToSpawn -= 1;
             SpawnTime = SpawnDelay;
             EnemySpawn2();
         }
-        else if (SpawnTime <= 0 && EnemiesToSpawn >= 1 && RandomizeEnemy == 3)
+        else if (SpawnTime <= 0 && EnemiesToSpawn >= 1 && RandomizeEnemy == 3 && started)
         {
             EnemiesToSpawn -= 1;
             SpawnTime = SpawnDelay;
             EnemySpawn3();
         }
-        else if (SpawnTime <= 0 && EnemiesToSpawn >= 1 && RandomizeEnemy == 4)
+        else if (SpawnTime <= 0 && EnemiesToSpawn >= 1 && RandomizeEnemy == 4 && started)
         {
             EnemiesToSpawn -= 1;
             SpawnTime = SpawnDelay;
             EnemySpawn4();
         }
         
-        else if (SpawnTime <= 0 && EnemiesToSpawn <= 0)
+        if (SpawnTime <= 0 && EnemiesToSpawn <= 0)
         {
-            roundbutton.SetActive(true);
+            started = false;
+            if(buttonactive == false)
+            {
+                roundbutton.SetActive(true);
+                buttonactive = true;
+            }  
             if (start == true)
             {
                 wave += 1;
                 EnemiesToSpawn = 10 + wave;
+                start = false;
             } 
         }
 
