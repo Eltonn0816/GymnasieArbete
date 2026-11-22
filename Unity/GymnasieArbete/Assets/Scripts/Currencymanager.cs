@@ -15,7 +15,7 @@ public class Currencymanager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Currency = 0;
+        Currency = 500;
     }
 
     // Update is called once per frame

@@ -10,136 +10,72 @@ public class Tower1 : MonoBehaviour
     public float range = 2f;
     public float damage = 5;
     public float firerate = 1f;
-    public TextMeshProUGUI Upgradetext;
+    public TextMeshProUGUI Upgradetext1;
     //public TowerPlacement tp;
-    public GameObject panel;
     public bool ishovering = false;
-    public GameObject bulletprefab;
+    public GameObject bulletprefab1;
     public bool targetset = false;
-    private GameObject currentTarget;
-    private Vector3 target;
-
+    private Collider2D target;
+    public Tower1Buttons t1b; 
 
     // Start is called before the first frame update'
 
     public void Awake()
     {
-        panel.SetActive(false);
-        C = GetComponent<CircleCollider2D>();
-        StartCoroutine(ShootAtTarget());
         C.radius = range;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentTarget != null)
-        {
-            target = currentTarget.transform.position;
-        }
-    }
-    private IEnumerator ShootAtTarget()
-    {
-        while (true)
-        {
-            if(targetset && currentTarget != null)
-            {
-                shoot();
-                yield return new WaitForSeconds(firerate);
-            }
-            else
-            {
-                yield return null;
-            }
-        }
-    }
-    private void OnMouseEnter()
-    {
-        ishovering = true;
-        if (Input.GetMouseButtonDown(0) && ishovering)
-        {
-            panel.SetActive(true);
-        }
-    }
-    private void OnMouseExit()
-    {
-        ishovering = false;
-        panel.SetActive(false);
+     
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy") && !targetset)
+        if (other.CompareTag("Enemy"))
         {
-            currentTarget = other.gameObject;
-            targetset = true;
+            target = other;
+            StartCoroutine(ShootAtTarget());
+            Debug.Log("Enemy spotted");
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject == currentTarget)
+        if (other.CompareTag("Enemy"))
         {
-            Destroy(currentTarget);
-            currentTarget = null;
-            targetset = false;
+            target = null;
+            StopCoroutine(ShootAtTarget());
         }
     }
-    private void shoot()
-    {
-        GameObject bullet = Instantiate(bulletprefab, transform.position, Quaternion.identity);
-        Bullet bulletScript = bullet.GetComponent<Bullet>();
-        bulletScript.Initialize(target, damage);
 
+    private IEnumerator ShootAtTarget()
+    {        
+       GameObject projectile = Instantiate(bulletprefab1, transform.position, transform.rotation);
+       Vector3 direction = (target.transform.position - transform.position).normalized;
+       projectile.GetComponent<Rigidbody2D>().velocity = direction * 1f;
+       yield return new WaitForSeconds(firerate); //shooting rate
     }
-    public void upgradedamage()
+    public void upgradedamage1()
     {
         float damageup = Mathf.Round(Random.Range(1f, 6f) * 100f) / 100f;
         damage += damageup;
-        Upgradetext.text = "Dmg up " + damageup.ToString();
-        panel.SetActive(false);
+        Upgradetext1.text = "Dmg up " + damageup.ToString();
+        t1b.panel.SetActive(false);
     }
-    public void upgraderange()
+    public void upgraderange1()
     {
         float rangeup = Mathf.Round(Random.Range(0.1f, 0.3f) * 100f) / 100f;
         range += rangeup;
-        Upgradetext.text = "Range up " + rangeup.ToString();
+        Upgradetext1.text = "Range up " + rangeup.ToString();
         C.radius = range;
-        panel.SetActive(false);
+        t1b.panel.SetActive(false);
     }
-    public void upgradefirerate()
+    public void upgradefirerate1()
     {
         float firerateup = Mathf.Round(Random.Range(0.03f, 0.1f) * 100f) / 100f;
         firerate -= firerateup;
-        Upgradetext.text = "Firing rate up " + firerateup.ToString();
-        panel.SetActive(false);
+        Upgradetext1.text = "Firing rate up " + firerateup.ToString();
+        t1b.panel.SetActive(false);
     }
-    public class Bullet : MonoBehaviour
-    {
-        private Vector3 target;
-        private float damage;
-
-        public void Initialize(Vector3 targetPosition, float bulletDamage)
-        {
-            target = targetPosition;
-            damage = bulletDamage;
-            StartCoroutine(MoveTowardsTarget());
-        }
-
-        private IEnumerator MoveTowardsTarget()
-        {
-            while (Vector3.Distance(transform.position, target) > 0.1f)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * 5f);
-                yield return null;
-            }
-            HitTarget();
-        }
-
-        private void HitTarget()
-        {
-            // Assuming the enemy has a method called TakeDamage
-           // EnemyHealth.takedamage(damage);
-            Destroy(gameObject);
-        }
-    } 
 }

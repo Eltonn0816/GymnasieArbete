@@ -121,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2567593857738383130}
+      - m_Target: {fileID: 731671303708487349}
         m_TargetAssemblyTypeName: Tower1Buttons, Assembly-CSharp
         m_MethodName: upgraderange
         m_Mode: 1
@@ -163,10 +163,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5558286637365983685}
-  - {fileID: 6171068800894144502}
-  - {fileID: 1759657088857179877}
   - {fileID: 9128749971994101683}
+  - {fileID: 5558286637365983685}
+  - {fileID: 1759657088857179877}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8407435674639383304
@@ -286,7 +285,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Upgrade Damage
+  m_text: Upgrade  Damage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 84046ee716c832d44a1da4a38973a32b, type: 2}
   m_sharedMaterial: {fileID: -3727062491293760186, guid: 84046ee716c832d44a1da4a38973a32b, type: 2}
@@ -597,7 +596,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6171068800894144502}
   m_Father: {fileID: 7769460861728543253}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5609595651624597586
@@ -612,21 +612,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d2ff008cbfd4f47992ead6e71bb73e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  C: {fileID: 0}
+  C: {fileID: 6181401504313817575}
   range: 3
   damage: 5
   firerate: 1
-  Upgradetext: {fileID: 4656660233132540883}
-  panel: {fileID: 4679718726449033452}
+  Upgradetext1: {fileID: 4656660233132540883}
   ishovering: 0
-  turretRotationpoint: {fileID: 5558286637365983685}
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 1
-  bulletprefab: {fileID: 1563899317555075390, guid: 645a12810d6d4d7409b491834a502e08, type: 3}
-  firingpoint: {fileID: 7769460861728543253}
-  bps: 1
-  rotationSpeed: 5
+  bulletprefab1: {fileID: 1563899317555075390, guid: 645a12810d6d4d7409b491834a502e08, type: 3}
+  targetset: 0
+  t1b: {fileID: 731671303708487349}
 --- !u!58 &6181401504313817575
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -671,8 +665,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9128749971994101683}
-  - component: {fileID: 2567593857738383130}
-  m_Layer: 0
+  - component: {fileID: 731671303708487349}
+  - component: {fileID: 1683821794646239256}
+  m_Layer: 5
   m_Name: ButtonFunctions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -688,13 +683,13 @@ Transform:
   m_GameObject: {fileID: 4824412561808416127}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 420.62964, y: 544.63446, z: -1.8069888}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7769460861728543253}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2567593857738383130
+--- !u!114 &731671303708487349
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -707,6 +702,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   t1: {fileID: 5609595651624597586}
+  panel: {fileID: 4679718726449033452}
+--- !u!58 &1683821794646239256
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4824412561808416127}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 5
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4
 --- !u!1 &5895210597907916695
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,7 +770,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8305586618962244968}
-  m_Father: {fileID: 7769460861728543253}
+  m_Father: {fileID: 5558286637365983685}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -930,7 +961,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2567593857738383130}
+      - m_Target: {fileID: 731671303708487349}
         m_TargetAssemblyTypeName: Tower1Buttons, Assembly-CSharp
         m_MethodName: upgradedmg
         m_Mode: 1
@@ -1063,7 +1094,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2567593857738383130}
+      - m_Target: {fileID: 731671303708487349}
         m_TargetAssemblyTypeName: Tower1Buttons, Assembly-CSharp
         m_MethodName: upgradefirerate
         m_Mode: 1
@@ -1140,7 +1171,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Upgrade firing rate
+  m_text: 'Upgrade  firing rate
 
 '
   m_isRightToLeft: 0
@@ -1378,7 +1409,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Upgrade Range
+  m_text: Upgrade  Range
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 84046ee716c832d44a1da4a38973a32b, type: 2}
   m_sharedMaterial: {fileID: -3727062491293760186, guid: 84046ee716c832d44a1da4a38973a32b, type: 2}

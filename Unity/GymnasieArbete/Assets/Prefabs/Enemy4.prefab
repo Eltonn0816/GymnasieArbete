@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 7943526226264738121}
   m_Layer: 0
   m_Name: Enemy4
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 1674271419479310633}
   m_Layer: 0
   m_Name: Enemy4
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -436,6 +436,7 @@ MonoBehaviour:
   MovementSpeed: 1
   movepath: {fileID: 0}
   health: {fileID: 2656276044521170022}
+  life: {fileID: 0}
   spawner: {fileID: 0}
 --- !u!212 &1674271419479310633
 SpriteRenderer:
